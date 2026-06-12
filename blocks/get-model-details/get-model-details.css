@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .get-model-details {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+main .get-model-details .model-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 620px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Left: Image section (fixed 260px wide) */
+main .get-model-details .model-image {
+  position: relative;
+  flex: 0 0 260px;
+  width: 260px;
+  height: 100%;
+  overflow: hidden;
+}
+
+main .get-model-details .model-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CTA button on image (bottom-center) */
+main .get-model-details .cta-on-image {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #e7e7e7;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+main .get-model-details .cta-on-image:hover {
+  opacity: 0.9;
+}
+
+main .get-model-details .cta-on-image:focus-visible {
+  outline: 2px solid #002c5e;
+  outline-offset: 2px;
+}
+
+/* Right: Details section with darkened palette bg (set via inline style in JS) */
+main .get-model-details .model-details {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+main .get-model-details .model-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: inherit;
+}
+
+main .get-model-details .model-description {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.78;
+  color: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+main .get-model-details .model-price {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 4px;
+  color: inherit;
+}
+
+main .get-model-details .category-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  font-size: 11px;
+  font-weight: 600;
+  color: inherit;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+/* Dark mode — dim outer widget background only.
+   Do NOT override the palette-colored .model-details background. */
+@media (prefers-color-scheme: dark) {
+  main .get-model-details {
+    background: #111;
+  }
+  main .get-model-details .model-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+}
+
+body.dark main .get-model-details {
+  background: #111;
+}
+
+body.dark main .get-model-details .model-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+  main .get-model-details .model-card {
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+  }
+
+  main .get-model-details .model-image {
+    flex: 0 0 180px;
+    width: 100%;
+    height: 180px;
+  }
+
+  main .get-model-details .model-details {
+    padding: 14px;
+  }
+}
