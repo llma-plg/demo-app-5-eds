@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .list-models {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+main .list-models .carousel-wrapper {
+  position: relative;
+}
+
+main .list-models .carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px;
+}
+
+main .list-models .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+main .list-models .card {
+  flex: 0 0 220px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+main .list-models .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+main .list-models .card-image {
+  position: relative;
+  flex: 6;
+  width: 100%;
+  overflow: hidden;
+}
+
+main .list-models .cta-on-image {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e7e7e7;
+  color: #333;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+main .list-models .cta-on-image:hover {
+  opacity: 0.9;
+}
+
+main .list-models .cta-on-image:focus-visible {
+  outline: 2px solid #002c5e;
+  outline-offset: 2px;
+}
+
+main .list-models .card-content {
+  flex: 4;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+main .list-models .card-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+main .list-models .card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+main .list-models .card-price {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+main .list-models .card-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: #e7e7e7;
+  color: #333;
+  font-weight: 500;
+}
+
+main .list-models .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+main .list-models .arrow:hover {
+  background: rgba(255,255,255,1);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+main .list-models .arrow:focus-visible {
+  outline: 2px solid #002c5e;
+  outline-offset: 2px;
+}
+
+main .list-models .arrow-left {
+  left: 8px;
+}
+
+main .list-models .arrow-right {
+  right: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  main .list-models {
+    background: transparent;
+  }
+
+  main .list-models .card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  main .list-models .arrow {
+    background: rgba(40,40,40,0.95);
+    border-color: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  main .list-models .arrow:hover {
+    background: rgba(50,50,50,1);
+  }
+}
+
+body.dark main .list-models {
+  background: transparent;
+}
+
+body.dark main .list-models .card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+body.dark main .list-models .arrow {
+  background: rgba(40,40,40,0.95);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.dark main .list-models .arrow:hover {
+  background: rgba(50,50,50,1);
+}
